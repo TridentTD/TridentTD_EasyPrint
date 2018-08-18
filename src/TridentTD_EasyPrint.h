@@ -151,8 +151,19 @@ obj.print(((arg.month<10)?"/0":"/")); obj.print(int(arg.month));
 obj.print(((arg.year<10)?"/0":"/")); obj.print(int(arg.year));
 return obj; } 
 
-inline Stream &operator >> (Stream &obj1, Stream &obj2)
-{ if( obj1.available() ) while(obj1.available()) obj2 << (char)obj1.read();
-return obj1; }
+inline String operator >>(String str, Print &obj)
+{ obj.print(str); return str;}
+
+inline String operator >> (Stream &obj1, Stream &obj2)
+{ 
+  String _buf="";
+  if( obj1.available() ){
+    while(obj1.available()) {
+      char c = (char)obj1.read(); 
+      obj2 << c; _buf +=c;
+    }
+  }
+  return _buf;
+}
 
 #endif
