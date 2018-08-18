@@ -32,13 +32,13 @@ void setup() {
   }
 
 
-  Serial.print("Initializing SD card...");
+  Serial  << "Initializing SD card...";
 
   if (!SD.begin(4)) {
-    Serial.println("initialization failed!");
+    Serial << "initialization failed!" <<endl;
     return;
   }
-  Serial.println("initialization done.");
+  Serial << "initialization done." <<endl;
 
   // open the file. note that only one file can be open at a time,
   // so you have to close this one before opening another.
@@ -46,20 +46,20 @@ void setup() {
 
   // if the file opened okay, write to it:
   if (myFile) {
-    Serial.print("Writing to test.txt...");
+    Serial << "Writing to test.txt...";
     myFile << "testing 1, 2, 3." << endl;       // ใช้ print ตามแบบ C++ Style
     // close the file:
     myFile.close();
-    Serial.println("done.");
+    Serial << "done." <<endl;
   } else {
     // if the file didn't open, print an error:
-    Serial.println("error opening test.txt");
+    Serial << "error opening test.txt" <<endl;
   }
 
   // re-open the file for reading:
   myFile = SD.open("test.txt");
   if (myFile) {
-    Serial.println("test.txt:");
+    Serial << "test.txt:" <<endl;
 
     // read from the file until there's nothing else in it:
     while (myFile.available()) {
@@ -69,7 +69,7 @@ void setup() {
     myFile.close();
   } else {
     // if the file didn't open, print an error:
-    Serial.println("error opening test.txt");
+    Serial << "error opening test.txt" <<endl;
   }
 }
 
