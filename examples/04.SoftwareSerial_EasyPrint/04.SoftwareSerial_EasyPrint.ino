@@ -13,7 +13,7 @@ void setup() {
 
 int  counter=0;
 void loop() {
-	myDevice << "[DATA]" << counter++ << [END] << endl;
+	myDevice << "[DATA]" << counter++ << "[END]" << endl;
 	delay(1000);
 }
 
