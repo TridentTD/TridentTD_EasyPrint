@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map for Streaming
+#######################################
+
+TridentTD_EasyPrint	KEYWORD3
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+TD_BASED	KEYWORD2
+TD_HEX	KEYWORD2
+TD_DEC	KEYWORD2
+TD_OCT	KEYWORD2
+TD_BIN	KEYWORD2
+TD_BYTE	KEYWORD2
+TD_TIME	KEYWORD2
+TD_DATE	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+endl	LITERAL1

@@ -1,0 +1,17 @@
+{
+  "name": "TridentTD_EasyPrint",
+  "keywords": "FreeRTOS, ESP32, frameworks",
+  "description": "Streaming C++-style Output with Operator <<",
+  "homepage": "https://github.com/TridentTD/TridentTD_EasyPrint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TridentTD/TridentTD_EasyPrint"
+  },
+  "version": "1.0.0",
+  "authors": {
+    "name": "TridentTD",
+    "url": "https://github.com/TridentTD/"
+  },
+  "frameworks": "arduino",
+  "platforms": "*"
+}
