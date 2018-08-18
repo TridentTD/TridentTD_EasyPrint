@@ -23,6 +23,7 @@ TD_BYTE	KEYWORD2
 TD_TIME	KEYWORD2
 TD_DATE	KEYWORD2
 TD_FLOAT	KEYWORD2
+TD_FILL	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

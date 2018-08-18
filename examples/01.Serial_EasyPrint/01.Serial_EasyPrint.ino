@@ -1,3 +1,6 @@
+
+// ตัวอย่างนี้ให้ save file ต่างหากออกมาก่อน จึงจะแสดงภาษาไทยได้ถูกต้อง
+
 #include <TridentTD_EasyPrint.h>
 
 void setup() {
