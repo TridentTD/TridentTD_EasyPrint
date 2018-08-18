@@ -31,6 +31,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "WProgram.h"
 #endif
 
+#include <IPAddress.h>
+
 #define STREAMING_LIBRARY_VERSION 5.1
 
 // Generic template
@@ -153,6 +155,15 @@ return obj; }
 
 inline String operator >>(String str, Print &obj)
 { obj.print(str); return str;}
+
+inline int operator >>(int arg , Print &obj)
+{ obj.print(arg); return arg;}
+
+inline TD_FLOAT operator >>(const TD_FLOAT arg, Print &obj)
+{ obj.print(arg.val, arg.digits);  return arg; }
+
+inline IPAddress operator >>(IPAddress arg, Print &obj)
+{ obj.print(arg);  return arg; }
 
 inline String operator >> (Stream &obj1, Stream &obj2)
 { 
