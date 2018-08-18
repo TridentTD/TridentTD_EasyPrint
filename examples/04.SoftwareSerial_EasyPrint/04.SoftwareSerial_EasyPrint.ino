@@ -1,4 +1,5 @@
 #include <SoftwareSerial.h>
+#include <TridentTD_EasyPrint.h>
 
 #define DEVICE_RX				5					// pin rx
 #define DEVICE_TX				4					// pin tx
