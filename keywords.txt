@@ -8,7 +8,7 @@ TridentTD_EasyPrint	KEYWORD3
 # Datatypes (KEYWORD1)
 #######################################
 
-
+cout	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
