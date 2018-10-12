@@ -203,6 +203,29 @@ namespace TridentTD {
     }
     return ret;
   }
+
+  String TIS620_to_UTF8(String tis620_str, bool debug = false){
+    size_t sz = tis620_str.length();
+    String utf8_str;
+    for(int i=0; i < sz; ++i) {
+      int c = (int) tis620_str[i];
+      if( c < 0x80 ){
+        utf8_str += (char) c;
+        if(debug) Serial.printf( "convert : %0X\n" , c);
+      }else if((0xA1 <= c && c <=0xDA) || (0xDF <= c && c <=0xFB)){
+        int unicode = 0x0E00 + c - 0xA0;
+        utf8_str += (char)( 0xE0 |  (unicode >> 12 ));
+        utf8_str += (char)( 0x80 | ((unicode >> 6) & 0x3F));
+        utf8_str += (char) (0x80 |  (unicode & 0x3F));
+        if(debug) {
+          Serial.printf( "convert : %0X\n" , (int)( 0xE0 |  (unicode >> 12 )));
+          Serial.printf( "convert : %0X\n" , (int)( 0x80 | ((unicode >> 6) & 0x3F)));
+          Serial.printf( "convert : %0X\n" , (int) (0x80 |  (unicode & 0x3F));
+        }
+      }
+    }
+    return utf8_str;
+  }
 }
 
 

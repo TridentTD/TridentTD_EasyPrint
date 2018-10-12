@@ -13,7 +13,15 @@ void setup() {
 
   for(int i =0; i < thai_tis620_str.length(); ++i)
     Serial << "[charAt " << i << "] code = " << (int)thai_tis620_str[i] << endl;
+
+  Serial.println("--------------------------");
+
+  // แปลงกลับคืน
+  String thai_utf8_str2  = TridentTD::TIS620_to_UTF8(thai_tis620_str);
+  Serial.println( thai_utf8_str2 );
+
 }
+
 
 void loop() {
 
