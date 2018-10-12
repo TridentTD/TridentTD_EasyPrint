@@ -194,7 +194,11 @@ namespace TridentTD {
         unicode    |= ((int)(utf8_str[i+1]) & 0x3F) << 6;
         unicode    |= ((int)(utf8_str[i])   & 0x0F) << 12;
         ret += (char) ( unicode - 0x0E00 + 0xA0);
-        if(debug) Serial.printf( "convert : %0X\n" , (int)( unicode - 0x0E00 + 0xA0));
+        if(debug) 
+          Serial  << "UTF8: " << TD_HEX((int)(utf8_str[i])) << ", "
+                              << TD_HEX((int)(utf8_str[i+1])) << ", "
+                              << TD_HEX((int)(utf8_str[i+2])) << " --> "
+                  << "TIS620: " << TD_HEX((int)( unicode - 0x0E00 + 0xA0)) <<endl;
         i +=2;
       }else{
         ret += utf8_str[i];
@@ -211,16 +215,20 @@ namespace TridentTD {
       int c = (int) tis620_str[i];
       if( c < 0x80 ){
         utf8_str += (char) c;
-        if(debug) Serial.printf( "convert : %0X\n" , c);
+        if(debug) {
+          Serial  << "TIS620: " << TD_HEX((int) tis620_str[i]) << " --> "
+                  << "UTF8: "   << TD_HEX(c) << endl;
+        }
       }else if((0xA1 <= c && c <=0xDA) || (0xDF <= c && c <=0xFB)){
         int unicode = 0x0E00 + c - 0xA0;
         utf8_str += (char)( 0xE0 |  (unicode >> 12 ));
         utf8_str += (char)( 0x80 | ((unicode >> 6) & 0x3F));
         utf8_str += (char) (0x80 |  (unicode & 0x3F));
         if(debug) {
-          Serial.printf( "convert : %0X\n" , (int)( 0xE0 |  (unicode >> 12 )));
-          Serial.printf( "convert : %0X\n" , (int)( 0x80 | ((unicode >> 6) & 0x3F)));
-          Serial.printf( "convert : %0X\n" , (int)( 0x80 | (unicode & 0x3F)));
+          Serial  << "TIS620: " << TD_HEX((int) tis620_str[i]) << " --> "
+                  << "UTF8: "   << TD_HEX((int)( 0xE0 |  (unicode >> 12 ))) << ", "
+                                << TD_HEX((int)( 0x80 | ((unicode >> 6) & 0x3F))) << ", "
+                                << TD_HEX((int)( 0x80 | (unicode & 0x3F))) <<endl;
         }
       }
     }
