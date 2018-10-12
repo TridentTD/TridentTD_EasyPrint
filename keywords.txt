@@ -24,6 +24,7 @@ TD_TIME	KEYWORD2
 TD_DATE	KEYWORD2
 TD_FLOAT	KEYWORD2
 TD_FILL	KEYWORD2
+UTF8_to_TIS620	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

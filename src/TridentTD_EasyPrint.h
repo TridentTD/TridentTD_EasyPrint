@@ -40,6 +40,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define cout Serial
 #endif
 
+
 // Generic template
 template<class T> 
 inline Print &operator <<(Print &stream, T arg) 
@@ -181,5 +182,28 @@ inline String operator >> (Stream &obj1, Stream &obj2)
   }
   return _buf;
 }
+
+
+namespace TridentTD {
+  String UTF8_to_TIS620(String utf8_str, bool debug = false){
+    size_t sz = utf8_str.length();
+    String ret;
+    for(int i = 0; i < sz; ++i){
+      if( (int)(utf8_str[i]) == 224 ) {
+        int unicode = ((int)(utf8_str[i+2]) & 0x3F);
+        unicode    |= ((int)(utf8_str[i+1]) & 0x3F) << 6;
+        unicode    |= ((int)(utf8_str[i])   & 0x0F) << 12;
+        ret += (char) ( unicode - 0x0E00 + 0xA0);
+        if(debug) Serial.printf( "convert : %0X\n" , (int)( unicode - 0x0E00 + 0xA0));
+        i +=2;
+      }else{
+        ret += utf8_str[i];
+        if(debug) Serial.printf( "convert : %0X\n", (int)(utf8_str[i]));
+      }
+    }
+    return ret;
+  }
+}
+
 
 #endif
