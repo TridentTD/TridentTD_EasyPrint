@@ -195,14 +195,16 @@ namespace TridentTD {
         unicode    |= ((int)(utf8_str[i])   & 0x0F) << 12;
         ret += (char) ( unicode - 0x0E00 + 0xA0);
         if(debug) 
-          Serial  << "UTF8: " << TD_HEX((int)(utf8_str[i])) << ", "
-                              << TD_HEX((int)(utf8_str[i+1])) << ", "
-                              << TD_HEX((int)(utf8_str[i+2])) << " --> "
+          Serial  << "UTF8: "   << TD_HEX((int)(utf8_str[i])) << ", "
+                                << TD_HEX((int)(utf8_str[i+1])) << ", "
+                                << TD_HEX((int)(utf8_str[i+2])) << " --> "
                   << "TIS620: " << TD_HEX((int)( unicode - 0x0E00 + 0xA0)) <<endl;
         i +=2;
       }else{
         ret += utf8_str[i];
-        if(debug) Serial.printf( "convert : %0X\n", (int)(utf8_str[i]));
+        if(debug) 
+          Serial  << "UTF8: "   << TD_HEX((int)(utf8_str[i])) << " --> "
+                  << "TIS620: " << TD_HEX((int)(utf8_str[i])) << endl;
       }
     }
     return ret;
