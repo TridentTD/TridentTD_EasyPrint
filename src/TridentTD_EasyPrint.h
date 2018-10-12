@@ -220,7 +220,7 @@ namespace TridentTD {
         if(debug) {
           Serial.printf( "convert : %0X\n" , (int)( 0xE0 |  (unicode >> 12 )));
           Serial.printf( "convert : %0X\n" , (int)( 0x80 | ((unicode >> 6) & 0x3F)));
-          Serial.printf( "convert : %0X\n" , (int) (0x80 |  (unicode & 0x3F));
+          Serial.printf( "convert : %0X\n" , (int)( 0x80 | (unicode & 0x3F)));
         }
       }
     }
