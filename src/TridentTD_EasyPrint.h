@@ -183,8 +183,10 @@ inline String operator >> (Stream &obj1, Stream &obj2)
   return _buf;
 }
 
-
-namespace TridentTD {
+#ifndef __TRIDENTTD_SPACE___
+#define __TRIDENTTD_SPACE___
+class TridentTD {
+public:
   String UTF8_to_TIS620(String utf8_str, bool debug = false){
     size_t sz = utf8_str.length();
     String ret;
@@ -236,7 +238,8 @@ namespace TridentTD {
     }
     return utf8_str;
   }
-}
+};
 
+#endif //__TRIDENTTD_SPACE___
 
 #endif
