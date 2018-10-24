@@ -183,6 +183,11 @@ inline String operator >> (Stream &obj1, Stream &obj2)
   return _buf;
 }
 
-#include "TridentTD_EasyPrint.hpp"
+namespace TridentTD {
+  String UTF8_to_TIS620(String utf8_str, bool debug = false);
+  String TIS620_to_UTF8(String tis620_str, bool debug = false);
+}
+
+
 
 #endif
