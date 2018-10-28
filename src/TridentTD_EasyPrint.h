@@ -186,6 +186,8 @@ inline String operator >> (Stream &obj1, Stream &obj2)
 namespace TridentTD {
   String UTF8_to_TIS620(String utf8_str, bool debug = false);
   String TIS620_to_UTF8(String tis620_str, bool debug = false);
+  uint32_t  UTF8_code(char c);
+  uint8_t   TIS620_code(char c);
 }
 
 
