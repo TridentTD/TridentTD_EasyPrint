@@ -89,4 +89,13 @@ uint8_t TridentTD::TIS620_code(String c){
   return *(uint8_t*) TridentTD::UTF8_to_TIS620(String(c)).c_str();
 }
 
+String TridentTD::UTF8_String(uint32_t code) {
+  uint32_t c = ((code & 0xFF) << 16)  | (code & 0xFF00) | ((code >> 16 ) & 0xFF); 
+  return String((char*)&c);
+}
+
+String TridentTD::TIS620_String(uint8_t code){
+  return TridentTD::TIS620_to_UTF8(String((char)code));
+}
+
 #endif //__TRIDENTTD_SPACE___

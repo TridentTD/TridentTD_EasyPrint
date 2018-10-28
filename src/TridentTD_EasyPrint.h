@@ -184,10 +184,12 @@ inline String operator >> (Stream &obj1, Stream &obj2)
 }
 
 namespace TridentTD {
-  String UTF8_to_TIS620(String utf8_str, bool debug = false);
-  String TIS620_to_UTF8(String tis620_str, bool debug = false);
-  uint32_t  UTF8_code(String c);
-  uint8_t   TIS620_code(String c);
+  String UTF8_to_TIS620(String utf8_str, bool debug = false);  // แปลง UTF8 String ไปเป็น  TIS620 String
+  String TIS620_to_UTF8(String tis620_str, bool debug = false); // แปลง TIS620 String ไปเป็น UTF8 String
+  uint32_t  UTF8_code(String c);              // แปลง char ตัวไทย ว่ามีค่า UTF8 อะไร
+  uint8_t   TIS620_code(String c);            // แปลง char ตัวไทย ว่ามีค่า TIS620 อะไร
+  String    UTF8_String(uint32_t code);       // แปลง รหัส UTF8 ว่าคอ char อะไร
+  String    TIS620_String(uint8_t code);      // แปลง รัหส TIS620 ว่าคือ char อะไร
 }
 
 

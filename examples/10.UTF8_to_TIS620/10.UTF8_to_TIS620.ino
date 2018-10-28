@@ -24,9 +24,15 @@ void setup() {
 
   // ดูว่าอักขระไทย นั้นมี รหัส UTF8 และ TIS620 คืออะไร
 
-  Serial  << "UTF8   : " << TD_HEX(TridentTD::UTF8_code("ก"))   << endl
+  Serial  << "ก" << endl
+          << "UTF8   : " << TD_HEX(TridentTD::UTF8_code("ก"))   << endl
           << "TIS620 : " << TD_HEX(TridentTD::TIS620_code("ก")) << endl;
 
+  uint32_t code_utf8 = 0xe0b89b;
+  uint8_t  code_tis620 = 0xbb;
+
+  Serial  << TridentTD::UTF8_String(code_utf8))     << endl
+          << TridentTD::TIS620_String(code_tis620)) << endl;
 }
 
 

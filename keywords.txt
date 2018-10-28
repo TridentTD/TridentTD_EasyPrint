@@ -28,6 +28,8 @@ UTF8_to_TIS620	KEYWORD2
 TIS620_to_UTF8	KEYWORD2
 UTF8_code	KEYWORD2
 TIS620_code	KEYWORD2
+UTF8_String	KEYWORD2
+TIS620_String	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
