@@ -79,13 +79,13 @@ String TridentTD::TIS620_to_UTF8(String tis620_str, bool debug){
   return utf8_str;
 }
 
-uint32_t TridentTD::UTF8_code(char c) {
+uint32_t TridentTD::UTF8_code(String c) {
   String u =  TridentTD::TIS620_to_UTF8(TridentTD::UTF8_to_TIS620(String(c))); 
   uint32_t code = *(uint32_t*) u.c_str(); 
   return ((code & 0xFF) << 16)  | (code & 0xFF00) | ((code >> 16 ) & 0xFF);
 }
 
-uint8_t TridentTD::TIS620_code(char c){ 
+uint8_t TridentTD::TIS620_code(String c){ 
   return *(uint8_t*) TridentTD::UTF8_to_TIS620(String(c)).c_str();
 }
 
