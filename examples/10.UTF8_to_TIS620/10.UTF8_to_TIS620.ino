@@ -31,8 +31,8 @@ void setup() {
   uint32_t code_utf8 = 0xe0b89b;
   uint8_t  code_tis620 = 0xbb;
 
-  Serial  << TridentTD::UTF8_String(code_utf8))     << endl
-          << TridentTD::TIS620_String(code_tis620)) << endl;
+  Serial  << TridentTD::UTF8_String(code_utf8)     << endl
+          << TridentTD::TIS620_String(code_tis620) << endl;
 }
 
 
